@@ -60,13 +60,12 @@ return employeeInfo;
 const displayAverageSalary = function(employeeInfo) {
 
   const totalSalary = sumArray(employeeInfo);
-  console.log('total sum:', totalSalary);
+  const totalSalaryNumber = totalSalary.toFixed(2);
+  console.log('total sum:', totalSalaryNumber);
 
-  // const averageSalary = totalSalary / employeeInfo.length;
-
-  
-
-  // return averageSalary;
+  const averageSalary = totalSalary / employeeInfo.length;
+  const averageSalaryNumber = averageSalary.toFixed(2);
+  console.log('average:', averageSalaryNumber);
 
 }
 
