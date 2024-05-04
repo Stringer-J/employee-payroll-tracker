@@ -1,6 +1,6 @@
 // Get a reference to the #add-employees-btn element
 const addEmployeesBtn = document.querySelector('#add-employees-btn');
-
+// made a function that checks if 'salary' input is a number
 const salaryNumber = function(salary) {
   const number = parseFloat(salary);
 
@@ -14,14 +14,17 @@ const salaryNumber = function(salary) {
 // Collect employee data
 const collectEmployees = function() {
 
+  //creates empty array to store info in
   const employeeInfo = [];
+  //sets 'addEmployee' to true
   let addEmployee = true;
-
+  //makes a 'while' loop to used code inside as long as 'addEmployee' is true
   while (addEmployee) {
     const firstName = prompt('Enter first name:');
     const lastName = prompt('Enter last name:');
     let salaryInput = prompt('Enter salary:');
 
+    //runs 'salaryNumber' function on 'salaryInput' to check if salary is a number
   let salary = salaryNumber(salaryInput);
 
   const employeeArray = {
@@ -30,12 +33,16 @@ const collectEmployees = function() {
     salary: salary
   };
 
+  //adds what was entered above into the array
 employeeInfo.push(employeeArray);
 
+// checks if you want to continue adding info or end the loop
 const continueAdd = confirm('Add another employee?');
+// keeps 'addEmployee' true if 'continueAdd' confirms you want to add another employee
 addEmployee = continueAdd;
   }
 
+  //returns the new info you typed in to the empty 'employeeInfo' array we created earlier
 return employeeInfo;
 
 }
