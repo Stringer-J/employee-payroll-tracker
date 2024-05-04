@@ -1,18 +1,52 @@
 // Get a reference to the #add-employees-btn element
 const addEmployeesBtn = document.querySelector('#add-employees-btn');
 
+const salaryNumber = function(salary) {
+  const number = parseFloat(salary);
+
+  if (isNaN(number)) {
+    return 0;
+  } else {
+    return number;
+  }
+}
+
 // Collect employee data
 const collectEmployees = function() {
-  // TODO: Get user input to create and return an array of employee objects
+
+  const employeeInfo = [];
+  let addEmployee = true;
+
+  while (addEmployee) {
+    const firstName = prompt('Enter first name:');
+    const lastName = prompt('Enter last name:');
+    let salaryInput = prompt('Enter salary:');
+
+  let salary = salaryNumber(salaryInput);
+
+  const employeeArray = {
+    firstName: firstName,
+    lastName: lastName,
+    salary: salary
+  };
+
+employeeInfo.push(employeeArray);
+
+const continueAdd = confirm('Add another employee?');
+addEmployee = continueAdd;
+  }
+
+return employeeInfo;
+
 }
 
 // Display the average salary
-const displayAverageSalary = function(employeesArray) {
+const displayAverageSalary = function(employeeArray) {
   // TODO: Calculate and display the average salary
 }
 
 // Select a random employee
-const getRandomEmployee = function(employeesArray) {
+const getRandomEmployee = function(employeeArray) {
   // TODO: Select and display a random employee
 }
 
@@ -23,7 +57,7 @@ const getRandomEmployee = function(employeesArray) {
 */
 
 // Display employee data in an HTML table
-const displayEmployees = function(employeesArray) {
+const displayEmployees = function(employeeArray) {
   // Get the employee table
   const employeeTable = document.querySelector('#employee-table');
 
@@ -31,8 +65,8 @@ const displayEmployees = function(employeesArray) {
   employeeTable.innerHTML = '';
 
   // Loop through the employee data and create a row for each employee
-  for (let i = 0; i < employeesArray.length; i++) {
-    const currentEmployee = employeesArray[i];
+  for (let i = 0; i < employeeArray.length; i++) {
+    const currentEmployee = employeeArray[i];
 
     const newTableRow = document.createElement("tr");
 
