@@ -1,5 +1,6 @@
 // Get a reference to the #add-employees-btn element
 const addEmployeesBtn = document.querySelector('#add-employees-btn');
+
 // made a function that checks if 'salary' input is a number
 const salaryNumber = function(salary) {
   const number = parseFloat(salary);
@@ -60,12 +61,15 @@ return employeeInfo;
 const displayAverageSalary = function(employeeInfo) {
 
   const totalSalary = sumArray(employeeInfo);
-  const totalSalaryNumber = totalSalary.toFixed(2);
-  console.log('total sum:', totalSalaryNumber);
-
+  
   const averageSalary = totalSalary / employeeInfo.length;
   const averageSalaryNumber = averageSalary.toFixed(2);
-  console.log('average:', averageSalaryNumber);
+  const formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  });
+
+  console.log(`The average employee salary between our ${employeeInfo.length} employee(s) is`, formatter.format(averageSalaryNumber));
 
 }
 
