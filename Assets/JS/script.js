@@ -11,6 +11,14 @@ const salaryNumber = function(salary) {
   }
 }
 
+const sumArray = function(employeeInfo) {
+  let sum = 0;
+  for (let employee of employeeInfo) {
+    sum += employee.salary;
+  }
+  return sum;
+}
+
 // Collect employee data
 const collectEmployees = function() {
 
@@ -27,6 +35,7 @@ const collectEmployees = function() {
     //runs 'salaryNumber' function on 'salaryInput' to check if salary is a number
   let salary = salaryNumber(salaryInput);
 
+    //info added from previous prompts goes here, then later is put in the empty array 'employeeInfo'
   const employeeArray = {
     firstName: firstName,
     lastName: lastName,
@@ -48,12 +57,21 @@ return employeeInfo;
 }
 
 // Display the average salary
-const displayAverageSalary = function(employeeArray) {
-  // TODO: Calculate and display the average salary
+const displayAverageSalary = function(employeeInfo) {
+
+  const totalSalary = sumArray(employeeInfo);
+  console.log('total sum:', totalSalary);
+
+  // const averageSalary = totalSalary / employeeInfo.length;
+
+  
+
+  // return averageSalary;
+
 }
 
 // Select a random employee
-const getRandomEmployee = function(employeeArray) {
+const getRandomEmployee = function(employeeInfo) {
   // TODO: Select and display a random employee
 }
 
