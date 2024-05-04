@@ -12,6 +12,7 @@ const salaryNumber = function(salary) {
   }
 }
 
+// starts with a sum of 0, then looks at each salary entered, adds them all up, then returns the total value
 const sumArray = function(employeeInfo) {
   let sum = 0;
   for (let employee of employeeInfo) {
@@ -60,15 +61,20 @@ return employeeInfo;
 // Display the average salary
 const displayAverageSalary = function(employeeInfo) {
 
+  //makes variable that uses the 'sumArray' function I built above
   const totalSalary = sumArray(employeeInfo);
   
+  // divides total salary by the number of employee entries
   const averageSalary = totalSalary / employeeInfo.length;
+  // makes output number only go to 2 decimal places to emulate currency
   const averageSalaryNumber = averageSalary.toFixed(2);
+  //turns the output number to USD, maybe this makes the previous 'toFixed' irrelevant? Don't want to find out because it's working
   const formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
   });
 
+  //logs the sentence I wrote (exact one from the example), the number of employees, and the final formatted salary average
   console.log(`The average employee salary between our ${employeeInfo.length} employee(s) is`, formatter.format(averageSalaryNumber));
 
 }
